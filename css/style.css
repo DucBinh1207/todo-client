@@ -1,0 +1,483 @@
+.night-bg {
+  background-color: #252525;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #6c63ff;
+  border: none;
+  border-radius: 5px;
+}
+
+.visible {
+  display: block !important;
+}
+
+.visible__task {
+  opacity: 1 !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.error__input {
+  border: 2px solid red !important;
+}
+
+.page__selected {
+  color: white !important;
+  background-color: #6c63ff !important;
+  border: none !important;
+  transform: scale(1.15);
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  transition: all 0.3s ease-in-out;
+}
+body .todo__list {
+  display: flex;
+  justify-content: center;
+}
+body .todo__list .view__task {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 750px;
+  margin-top: 40px;
+}
+body .todo__list .view__task .todo__title {
+  font-family: "Kanit";
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 39px;
+  margin-bottom: 18px;
+}
+body .todo__list .view__task .tool__section {
+  display: flex;
+  gap: 16px;
+}
+body .todo__list .view__task .tool__section .search__box {
+  position: relative;
+}
+body .todo__list .view__task .tool__section .search__box .search {
+  width: 595px;
+  height: 38px;
+  padding: 10px 50px 10px 10px;
+  color: #6c63ff;
+  font-family: "Kanit";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%;
+  border-radius: 5px;
+  border: 1.5px solid #6c63ff;
+}
+body .todo__list .view__task .tool__section .search__box .search::placeholder {
+  color: #c3c1e5;
+  font-family: "Kanit";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%;
+}
+body .todo__list .view__task .tool__section .search__box .search:focus {
+  outline: none;
+}
+body .todo__list .view__task .tool__section .search__box i {
+  position: absolute;
+  color: #6c63ff;
+  font-size: 20px;
+  top: 8.5px;
+  right: 16px;
+}
+body .todo__list .view__task .tool__section .task__filter {
+  width: 85px;
+  height: 38px;
+  padding: 0px 10px;
+  color: white;
+  font-family: "Kanit";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 18px;
+}
+body .todo__list .view__task .tool__section .task__filter option {
+  background-color: white;
+  color: #6c63ff;
+  font-family: "Kanit";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  text-transform: capitalize;
+}
+body .todo__list .view__task .tool__section .task__filter:focus {
+  outline: none;
+}
+body .todo__list .view__task .tool__section .day__night__mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+}
+body .todo__list .view__task .tool__section .day__night__mode i {
+  display: none;
+}
+body .todo__list .view__task .tool__section .day__night__mode i::before {
+  font-size: 22px;
+  color: white;
+}
+body .todo__list .view__task .tasks__section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+body .todo__list .view__task .tasks__section .tasks__content {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  margin: 30px 0px;
+  width: 520px;
+  height: 566px;
+  transition: all 10s ease-in-out;
+}
+body .todo__list .view__task .tasks__section .tasks__content .no__task {
+  cursor: pointer;
+  margin-top: 50px;
+  color: #6c63ff;
+  font-family: "Kanit";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%;
+  text-transform: capitalize;
+  text-align: center;
+  border-bottom: 1px solid #6c63ff;
+  transition: all 10s ease-in-out;
+}
+body .todo__list .view__task .tasks__section .tasks__content .no__task:hover {
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+  color: #0d00fa;
+  border-bottom: 1px solid #0d00fa;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task label {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+  height: 26px;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task label input {
+  display: none;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task label span {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #6c63ff;
+  border-radius: 2px;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task label span i {
+  display: none;
+  color: white;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task label div {
+  width: 80%;
+  height: 20px;
+  color: #252525;
+  font-family: "Kanit";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 100%;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task label input:checked ~ span {
+  background-color: #6c63ff;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task label input:checked ~ span i {
+  display: block !important;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task label input:checked ~ div {
+  user-select: none;
+  color: rgba(37, 37, 37, 0.5);
+  font-weight: 400;
+  text-decoration-line: line-through;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+body .todo__list .view__task .tasks__section .tasks__content label::after {
+  position: absolute;
+  top: 43px;
+  content: "";
+  width: 100%;
+  border-top: 1px solid #6c63ff;
+  opacity: 0.5;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task__tool__section {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  display: flex;
+  gap: 10px;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task__tool__section > div {
+  cursor: pointer;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task__tool__section i {
+  font-size: 18px;
+  color: #cdcdcd;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task__tool__section .edit__task:hover i {
+  color: #6c63ff;
+}
+body .todo__list .view__task .tasks__section .tasks__content .task__tool__section .delete__task:hover i {
+  color: #e50000;
+}
+body .todo__list .view__task .pages {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 50px;
+  width: 100%;
+  color: #6c63ff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+}
+body .todo__list .view__task .pages .page__button {
+  cursor: pointer;
+  width: 26px;
+  height: 30px;
+  color: #6c63ff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  border-radius: 5px;
+  border: 1px solid #6c63ff;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+body .todo__list .view__task .pages .page__button:hover {
+  color: white;
+  background-color: #929dff;
+  border: none;
+  transform: scale(1.15);
+  transition: all 0.3s ease-in-out;
+}
+body .todo__list .view__task .add__btn {
+  position: fixed;
+  bottom: 32px;
+  right: calc((100vw - 750px) / 2 + 8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+body .todo__list .view__task .add__btn i {
+  font-size: 30px;
+  color: white;
+}
+body .todo__list .view__task .add__btn:hover {
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  border: 1px solid var(--purple, #6c63ff);
+}
+body .todo__list .view__task .add__btn:hover i {
+  color: #6c63ff;
+}
+body .todo__list .view__task .overlay {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(37, 37, 37, 0.7);
+}
+body .todo__list .view__task .add__task__section {
+  position: absolute;
+  top: 78px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 289px;
+  border-radius: 16px;
+  background: #f7f7f7;
+  border: 1px solid black;
+}
+body .todo__list .view__task .add__task__section h2 {
+  margin-top: 18px;
+  color: var(--black, #252525);
+  font-family: "Kanit";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+body .todo__list .view__task .add__task__section input {
+  margin: 25px 0px 128px 0px;
+  display: flex;
+  width: 440px;
+  height: 38px;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 436px;
+  flex-shrink: 0;
+  color: #6c63ff;
+  font-family: "Kanit";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  border-radius: 5px;
+  border: 1px solid var(--purple, #6c63ff);
+}
+body .todo__list .view__task .add__task__section input::placeholder {
+  color: #c3c1e5;
+  font-family: "Kanit";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+}
+body .todo__list .view__task .add__task__section input:focus {
+  outline: none;
+}
+body .todo__list .view__task .add__task__section .error__note {
+  display: none;
+  position: absolute;
+  top: 126px;
+  left: 40px;
+  width: 440px;
+  height: 50px;
+  color: red;
+  font-family: "Kanit";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%;
+}
+body .todo__list .view__task .add__task__section .error__note i {
+  font-style: italic !important;
+}
+body .todo__list .view__task .add__task__section .btn__section {
+  display: flex;
+  justify-content: space-between;
+  width: 440px;
+}
+body .todo__list .view__task .add__task__section .btn__section .new__task__section__btn {
+  cursor: pointer;
+  padding: 10px 22px;
+  color: var(--white, #f7f7f7);
+  font-family: "Kanit";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background: var(--purple, #6c63ff);
+  border: none;
+}
+body .todo__list .view__task .add__task__section .btn__section .cancel__btn {
+  border-radius: 5px;
+  border: 1px solid var(--purple, #6c63ff);
+  background: transparent;
+  color: var(--purple, #6c63ff);
+}
+body .todo__list .view__task .add__task__section .btn__section .cancel__btn:hover {
+  background: var(--purple, #6c63ff);
+  border: none;
+  color: var(--white, #f7f7f7);
+}
+body .todo__list .view__task .add__task__section .btn__section .apply__btn:hover {
+  background-color: transparent;
+  color: var(--purple, #6c63ff);
+  border: 1px solid var(--purple, #6c63ff);
+}
+
+body.night__mode {
+  background-color: #252525;
+}
+body.night__mode .todo__list .view__task .todo__title {
+  color: white;
+}
+body.night__mode .todo__list .view__task .tool__section .search__box .search {
+  color: white;
+  border: 1.5px solid white;
+  background-color: transparent;
+}
+body.night__mode .todo__list .view__task .tool__section .search__box .search::placeholder {
+  color: #666;
+}
+body.night__mode .todo__list .view__task .tool__section .search__box i {
+  color: white;
+}
+body.night__mode .todo__list .view__task .tasks__section .tasks__content label div {
+  color: white;
+}
+body.night__mode .todo__list .view__task .tasks__section .tasks__content label input:checked ~ div {
+  color: rgba(255, 255, 255, 0.5);
+}
+body.night__mode .todo__list .view__task .tasks__section .tasks__content .no__task {
+  color: white;
+  border-bottom: 1px solid white;
+}
+body.night__mode .todo__list .view__task .tasks__section .tasks__content .no__task:hover {
+  color: #6c63ff;
+  border-bottom: 1px solid #6c63ff;
+}
+body.night__mode .todo__list .view__task .add__task__section {
+  background: var(--black, #252525);
+  border: 1px solid white;
+}
+body.night__mode .todo__list .view__task .add__task__section h2 {
+  color: white;
+}
+body.night__mode .todo__list .view__task .add__task__section input {
+  background: transparent;
+  border: 1px solid var(--purple, #6c63ff);
+}
+body.night__mode .todo__list .view__task .add__task__section .btn__section {
+  display: flex;
+  justify-content: space-between;
+  width: 440px;
+}
+body.night__mode .todo__list .view__task .add__task__section .btn__section .cancel__btn {
+  background: transparent;
+}
+body.night__mode .todo__list .view__task .add__task__section .btn__section .cancel__btn:hover {
+  background: var(--purple, #6c63ff);
+}
+body.night__mode .todo__list .view__task .add__task__section .btn__section .apply__btn:hover {
+  background: transparent;
+}
+
+/*# sourceMappingURL=style.css.map */

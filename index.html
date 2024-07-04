@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Web Awesome"
+      href="/css/app-wa-d53d10572a0e0d37cb8d614a3f177a0c.css?vsn=d"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-thin.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-solid.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-regular.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-light.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/resetStyle.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="night__mode">
+    <div class="todo__list">
+      <div class="view__task">
+        <h1 class="todo__title">TODO LIST</h1>
+        <div class="tool__section">
+          <div class="search__box">
+            <input type="text" class="search" placeholder="Search note..." />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+
+          <select name="" id="" class="task__filter btn">
+            <option value="all" selected>ALL</option>
+            <option value="done">DONE</option>
+            <option value="not_done">NOT DONE</option>
+          </select>
+          <div class="day__night__mode btn">
+            <i class="fa-regular fa-sun dn__mode"></i>
+            <i class="fa-regular fa-moon dn__mode visible"> </i>
+          </div>
+        </div>
+        <div class="tasks__section">
+          <div class="tasks__content"></div>
+        </div>
+        <div class="pages"></div>
+        <div class="add__btn btn">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="overlay hidden"></div>
+        <div class="add__task__section hidden">
+          <h2 class="form__title">NEW NOTE</h2>
+          <input
+            type="text"
+            class="input__task"
+            placeholder="Input your note..."
+          />
+          <div class="error__note">* This field cannot be empty</div>
+          <div class="btn__section">
+            <button class="cancel__btn new__task__section__btn">CANCLE</button>
+            <button class="apply__btn new__task__section__btn">APPLY</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./script/utils.js"></script>
+    <script type="module" src="./script/constants.js"></script>
+    <script type="module" src="./script/lib.js"></script>
+    <script type="module" src="./script/index.js"></script>
+  </body>
+</html>
